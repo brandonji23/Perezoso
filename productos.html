@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detalle del producto - Peresozo">
-    <title>Detalle del Producto - Peresozo</title>
+    <meta name="description" content="Catálogo de pijamas Peresozo - Encuentra pijamas para dama, niño y niña">
+    <meta property="og:title" content="Catálogo Peresozo">
+    <meta property="og:description" content="Explora nuestra colección de pijamas cómodas">
+    <meta property="og:image" content="logo.png">
+    <title>Productos - Peresozo</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/Logo_perezoso.png">
@@ -50,160 +53,463 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <section class="py-3 bg-light">
+    <!-- Header de productos -->
+    <section class="products-header py-5 bg-light">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="productos.html">Productos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" id="productNameBreadcrumb">Producto</li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-
-    <!-- Detalle del Producto -->
-    <section class="product-detail py-5">
-        <div class="container">
-            <div class="row g-5">
-                <!-- Galería de Imágenes -->
-                <div class="col-lg-6">
-                    <div class="product-gallery">
-                        <!-- Imagen Principal -->
-                        <div class="main-image-container mb-3">
-                            <div class="zoom-container">
-                                <img id="mainImage" src="" alt="Producto" class="img-fluid main-product-image">
-                                <div class="zoom-icon">
-                                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-                                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Miniaturas -->
-                        <div class="thumbnails-container">
-                            <div class="row g-2" id="thumbnailsContainer">
-                                <!-- Se llenarán dinámicamente -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Información del Producto -->
-                <div class="col-lg-6">
-                    <div class="product-info">
-                        <span class="badge bg-primary mb-3" id="productCategory">Dama</span>
-                        <h1 class="product-title mb-3" id="productTitle">Cargando...</h1>
-                        <p class="product-description text-muted mb-4" id="productDescription">
-                            Cargando descripción...
-                        </p>
-                        
-                        <!-- Precio -->
-                        <div class="product-price mb-4">
-                            <h3 class="price-text mb-0">
-                                <span id="productPrice">$00.000</span>
-                            </h3>
-                        </div>
-
-                        <!-- Tallas -->
-                        <div class="mb-4">
-                            <label class="form-label fw-bold">Talla:</label>
-                            <select class="form-select" id="sizeSelect">
-                                <option value="Unica">Única (S/M)</option>
-                            </select>
-                        </div>
-
-                        <!-- Cantidad -->
-                        <div class="mb-4">
-                            <label class="form-label fw-bold">Cantidad:</label>
-                            <div class="quantity-selector d-flex align-items-center">
-                                <button class="btn btn-outline-secondary" id="decreaseQty">
-                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                    </svg>
-                                </button>
-                                <input type="number" class="form-control text-center mx-2" id="quantityInput" value="1" min="1" max="10" style="max-width: 80px;">
-                                <button class="btn btn-outline-secondary" id="increaseQty">
-                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Botones de Acción -->
-                        <div class="d-grid gap-3 mb-4">
-                            <button class="btn btn-primary btn-lg" id="addToQuoteBtn">
-                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24" class="me-2" style="vertical-align: middle;">
-                                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-                                </svg>
-                                Agregar a Cotización
-                            </button>
-                            <a href="productos.html" class="btn btn-outline-secondary btn-lg">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2" style="vertical-align: middle;">
-                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                                </svg>
-                                Volver a Productos
-                            </a>
-                        </div>
-
-                        <!-- Características -->
-                        <div class="product-features">
-                            <h5 class="mb-3">Características:</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <svg width="20" height="20" fill="#CB6CE6" viewBox="0 0 16 16" class="me-2">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                    </svg>
-                                    Material suave y cómodo
-                                </li>
-                                <li class="mb-2">
-                                    <svg width="20" height="20" fill="#CB6CE6" viewBox="0 0 16 16" class="me-2">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                    </svg>
-                                    Diseño exclusivo
-                                </li>
-                                <li class="mb-2">
-                                    <svg width="20" height="20" fill="#CB6CE6" viewBox="0 0 16 16" class="me-2">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                    </svg>
-                                    Fácil cuidado y lavado
-                                </li>
-                                <li class="mb-2">
-                                    <svg width="20" height="20" fill="#CB6CE6" viewBox="0 0 16 16" class="me-2">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                    </svg>
-                                    Ideal para todas las estaciones
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Productos Relacionados -->
-            <div class="related-products mt-5 pt-5 border-top">
-                <h2 class="text-center mb-5">Productos Relacionados</h2>
-                <div class="row g-4" id="relatedProductsContainer">
-                    <!-- Se llenarán dinámicamente -->
-                </div>
+            <h1 class="display-4 text-center mb-4">Nuestros Productos</h1>
+            <p class="text-center text-muted mb-5">Encuentra la pijama perfecta para ti y tu familia</p>
+            
+            <!-- Filtros -->
+            <div class="filter-section d-flex justify-content-center flex-wrap gap-2">
+                <button class="btn btn-primary filter-btn active" data-filter="todos">Todos</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="dama">Dama</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="nino">Niño</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="nina">Niña</button>
             </div>
         </div>
     </section>
 
-    <!-- Modal de Zoom de Imagen -->
-    <div class="modal fade" id="imageZoomModal" tabindex="-1" aria-labelledby="imageZoomModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-transparent border-0">
-                <div class="modal-body p-0 position-relative">
-                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Cerrar" style="z-index: 10;"></button>
-                    <img id="zoomedImage" src="" alt="Imagen ampliada" class="img-fluid w-100">
-                </div>
+    <!-- Catálogo de productos -->
+    <section class="products-catalog py-5">
+        <div class="container">
+            <div class="row g-4" id="productsGrid">
+                
+                <!-- Producto 1 - Dama -->
+               <div class="col-md-6 col-lg-4 product-item" data-category="dama">
+    <div class="card product-card h-100">
+        <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=pijama-capibara'">
+            <img src="img/pijama_capibara_navidad.png" alt="Pijama Capibara" width="290">
+        </div>
+        <div class="card-body">
+            <span class="badge bg-primary mb-2">Dama</span>
+            <h5 class="card-title">Pijama Navidad Capibara-Short</h5>
+            <p class="card-text text-muted">
+                Pijama de dos piezas en Piel durazno. Con estampado navideño de capibara.</p>
+            <p class="price-text mb-3">Precio: <strong>$45.000</strong></p>
+            
+            <div class="mb-3">
+                <label class="form-label small">Talla:</label>
+                <select class="form-select form-select-sm size-select">
+                    <option value="Unica">Unica (S/M)</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label small">Cantidad:</label>
+                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <a href="producto-detalle.html?id=pijama-capibara" class="btn btn-outline-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Ver Detalles
+                </a>
+                <button class="btn btn-primary add-to-quote" 
+                        data-name="Pijama Navidad Capibara-Short"
+                        data-category="dama">
+                    Agregar a cotización
+                </button>
             </div>
         </div>
     </div>
+</div>
+
+                <!-- Producto 2 - Dama -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="dama">
+    <div class="card product-card h-100">
+        <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=pijama-stitch'">
+            <img src="img/pijama_navideña_stitch.png" alt="Pijama Stitch">
+        </div>
+        <div class="card-body">
+            <span class="badge bg-primary mb-2">Dama</span>
+            <h5 class="card-title">Pijama Navidad Stitch-Short</h5>
+            <p class="card-text text-muted">Pijama de dos piezas en Piel durazno. Con estampado navideño de Stitch.</p>
+            <p class="price-text mb-3">Precio: <strong>$45.000</strong></p>
+            
+            <div class="mb-3">
+                <label class="form-label small">Talla:</label>
+                <select class="form-select form-select-sm size-select">
+                    <option value="unica">Unica (S/M)</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label small">Cantidad:</label>
+                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <a href="producto-detalle.html?id=pijama-stitch" class="btn btn-outline-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Ver Detalles
+                </a>
+                <button class="btn btn-primary add-to-quote" 
+                        data-name="Pijama Navidad Stitch-Short"
+                        data-category="dama">
+                    Agregar a cotización
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Producto - Dama -->
+                 <div class="col-md-6 col-lg-4 product-item" data-category="dama">
+    <div class="card product-card h-100">
+        <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=pijama-snoppy'">
+            <img src="img/Navidad_snoppy_short.png" alt="Pijama Snoppy">
+        </div>
+        <div class="card-body">
+            <span class="badge bg-primary mb-2">Dama</span>
+            <h5 class="card-title">Pijama Navidad Snoppy-Short</h5>
+            <p class="card-text text-muted">Pijama de dos piezas en Piel durazno. Con estampado navideño de Snoppy.</p>
+            <p class="price-text mb-3">Precio: <strong>$45.000</strong></p>
+            
+            <div class="mb-3">
+                <label class="form-label small">Talla:</label>
+                <select class="form-select form-select-sm size-select">
+                    <option value="unica">Unica (S/M)</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label small">Cantidad:</label>
+                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <a href="producto-detalle.html?id=pijama-snoppy" class="btn btn-outline-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Ver Detalles
+                </a>
+                <button class="btn btn-primary add-to-quote" 
+                        data-name="Pijama Navidad Snoppy-Short"
+                        data-category="dama">
+                    Agregar a cotización
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Producto - Dama -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="dama">
+    <div class="card product-card h-100">
+        <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=pijama-grinch'">
+            <img src="img/Navidad_grinch_pantalon.png" alt="Pijama Grinch">
+        </div>
+        <div class="card-body">
+            <span class="badge bg-primary mb-2">Dama</span>
+            <h5 class="card-title">Pijama Navidad Grinch-Pantalon</h5>
+            <p class="card-text text-muted">Pijama de dos piezas en Piel durazno. Con estampado navideño de Grinch.</p>
+            <p class="price-text mb-3">Precio: <strong>$59.000</strong></p>
+            
+            <div class="mb-3">
+                <label class="form-label small">Talla:</label>
+                <select class="form-select form-select-sm size-select">
+                    <option value="unica">Unica(S/M)</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label small">Cantidad:</label>
+                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <a href="producto-detalle.html?id=pijama-grinch" class="btn btn-outline-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Ver Detalles
+                </a>
+                <button class="btn btn-primary add-to-quote" 
+                        data-name="Pijama Navidad Grinch-Pantalon"
+                        data-category="dama">
+                    Agregar a cotización
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+                <!-- Producto- Dama -->
+               <div class="col-md-6 col-lg-4 product-item" data-category="dama">
+    <div class="card product-card h-100">
+        <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=pijama-polar'">
+            <img src="img/Navidad_Polar_short.png" alt="Pijama Polar">
+        </div>
+        <div class="card-body">
+            <span class="badge bg-primary mb-2">Dama</span>
+            <h5 class="card-title">Pijama Navidad Polar-Short</h5>
+            <p class="card-text text-muted">Pijama de dos piezas en Piel durazno. Con estampado navideño de Polar.</p>
+            <p class="price-text mb-3">Precio: <strong>$45.000</strong></p>
+            
+            <div class="mb-3">
+                <label class="form-label small">Talla:</label>
+                <select class="form-select form-select-sm size-select">
+                    <option value="unica">Unica (S/M)</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label small">Cantidad:</label>
+                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <a href="producto-detalle.html?id=pijama-polar" class="btn btn-outline-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    Ver Detalles
+                </a>
+                <button class="btn btn-primary add-to-quote" 
+                        data-name="Pijama Navidad Polar-Short"
+                        data-category="dama">
+                    Agregar a cotización
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Producto - Niño -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nino">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                           <img src="img/pijama_niño_dragon_ball.png" alt="pijama niño">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Niño</span>
+                            <h5 class="card-title">Pijama niño Dragon Ball</h5>
+                            <p class="card-text text-muted">Diseño de dragon ball con pantalon totalmente estampado.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niño Dragon Ball"
+                                    data-category="nino">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5 - Niño -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nino">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                           <img src="img/Pijama_niño_pawpatrol.png" alt="pijama niño">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Niño</span>
+                            <h5 class="card-title">Pijama niño Paw Patrol</h5>
+                            <p class="card-text text-muted">Estampado de paw patrol con pantalon sublimado.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niño Paw Patrol"
+                                    data-category="nino">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 - Niño -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nino">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                          <img src="img/Pijama_niño_spiderman.png" alt="pijama niño">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Niño</span>
+                            <h5 class="card-title">Pijama niño Spiderman</h5>
+                            <p class="card-text text-muted">Diseño de spiderman con pantalon sublimado.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niño Spiderman"
+                                    data-category="nino">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 7 - Niña -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nina">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                            <img src="img/Pijama_niña_hello_kitty.png" alt="pijama niña">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Niña</span>
+                            <h5 class="card-title">Pijama niña Hello Kitty</h5>
+                            <p class="card-text text-muted">Mágica pijama con estampado de hello kitty. Para sueños agradables.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niña Hello Kitty"
+                                    data-category="nina">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8 - Niña -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nina">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                           <img src="img/Pijama_niña_minnie_mouse.png" alt="pijama niña">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Niña</span>
+                            <h5 class="card-title">Pijama niña Minnie Mouse</h5>
+                            <p class="card-text text-muted">Colores brillantes y alegres. Llena de diversión y color.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niña Minnie Mouse"
+                                    data-category="nina">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 9 - Niña -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="nina">
+                    <div class="card product-card h-100">
+                        <div class="product-image-container">
+                           <img src="img/Pijama_niña_princess.png" alt="pijama niña">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Niña</span>
+                            <h5 class="card-title">Pijama niña Princess</h5>
+                            <p class="card-text text-muted">Tiernas princesas en tela suave. Perfecta para dulces sueños.</p>
+                            <p class="price-text mb-3">Precio: <strong>$35.000</strong></p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Talla:</label>
+                                <select class="form-select form-select-sm size-select">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small">Cantidad:</label>
+                                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 add-to-quote" 
+                                    data-name="Pijama niña Princess"
+                                    data-category="nina">
+                                Agregar a cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+       
 
     <!-- Footer -->
     <footer class="footer py-5">
@@ -245,14 +551,6 @@
         </div>
     </footer>
 
-    <!-- Botón flotante de cotización -->
-    <button id="quoteCartBtn" class="quote-cart-btn" aria-label="Abrir carro de cotización">
-        <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        <span id="cartCounter" class="cart-counter">0</span>
-    </button>
-
     <!-- Toast para notificaciones -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
         <div id="addToCartToast" class="toast" role="alert">
@@ -292,7 +590,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="sendQuoteBtn">
                         <svg width="20" height="20" fill="white" viewBox="0 0 24 24" style="vertical-align: middle;" class="me-1">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
                         Enviar por WhatsApp
                     </button>
@@ -301,195 +599,57 @@
         </div>
     </div>
 
+    <!-- Botón flotante de cotización -->
+    <button id="quoteCartBtn" class="quote-cart-btn" aria-label="Abrir carro de cotización">
+        <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span id="cartCounter" class="cart-counter">0</span>
+    </button>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JS -->
     <script>
-        // Base de datos de productos (misma estructura que en productos.html)
-        const productsDatabase = {
-            'pijama-capibara': {
-                name: 'Pijama Navidad Capibara-Short',
-                category: 'Dama',
-                price: '$45.000',
-                description: 'Pijama de dos piezas en Piel durazno. Con estampado navideño de capibara. Perfecta para las noches de diciembre, súper suave y cómoda.',
-                sizes: ['Unica (S/M)'],
-                images: [
-                    'img/pijama_capibara_navidad.png',
-                    'img/pijama_capibara_navidad.png', // Agregar más imágenes si están disponibles
-                ],
-                relatedProducts: ['pijama-stitch', 'pijama-snoppy']
-            },
-            'pijama-stitch': {
-                name: 'Pijama Navidad Stitch-Short',
-                category: 'Dama',
-                price: '$45.000',
-                description: 'Pijama de dos piezas en Piel durazno. Con estampado navideño de Stitch. Diseño divertido y moderno para descansar con estilo.',
-                sizes: ['Unica (S/M)'],
-                images: [
-                    'img/pijama_navideña_stitch.png',
-                    'img/pijama_navideña_stitch.png',
-                ],
-                relatedProducts: ['pijama-capibara', 'pijama-grinch']
-            },
-            'pijama-snoppy': {
-                name: 'Pijama Navidad Snoppy-Short',
-                category: 'Dama',
-                price: '$45.000',
-                description: 'Pijama de dos piezas en Piel durazno. Con estampado navideño de Snoppy. Clásico y tierno diseño para las fiestas.',
-                sizes: ['Unica (S/M)'],
-                images: [
-                    'img/Navidad_snoppy_short.png',
-                    'img/Navidad_snoppy_short.png',
-                ],
-                relatedProducts: ['pijama-capibara', 'pijama-polar']
-            },
-            'pijama-grinch': {
-                name: 'Pijama Navidad Grinch-Pantalon',
-                category: 'Dama',
-                price: '$59.000',
-                description: 'Pijama de dos piezas en Piel durazno. Con estampado navideño de Grinch. Incluye pantalón largo para mayor comodidad.',
-                sizes: ['Unica (S/M)'],
-                images: [
-                    'img/Navidad_grinch_pantalon.png',
-                    'img/Navidad_grinch_pantalon.png',
-                ],
-                relatedProducts: ['pijama-stitch', 'pijama-polar']
-            },
-            'pijama-polar': {
-                name: 'Pijama Navidad Polar-Short',
-                category: 'Dama',
-                price: '$45.000',
-                description: 'Pijama de dos piezas en Piel durazno. Con estampado navideño de Polar. Diseño invernal perfecto para la temporada.',
-                sizes: ['Unica (S/M)'],
-                images: [
-                    'img/Navidad_Polar_short.png',
-                    'img/Navidad_Polar_short.png',
-                ],
-                relatedProducts: ['pijama-snoppy', 'pijama-capibara']
-            }
-        };
+        // Filtros de productos
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
 
-        // Obtener ID del producto desde URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id') || 'pijama-capibara';
-        const product = productsDatabase[productId];
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Actualizar botones activos
+                filterButtons.forEach(btn => btn.classList.remove('active', 'btn-primary'));
+                filterButtons.forEach(btn => btn.classList.add('btn-outline-primary'));
+                this.classList.remove('btn-outline-primary');
+                this.classList.add('active', 'btn-primary');
 
-        // Cargar información del producto
-        function loadProductInfo() {
-            if (!product) {
-                window.location.href = 'productos.html';
-                return;
-            }
+                const filter = this.getAttribute('data-filter');
 
-            document.getElementById('productTitle').textContent = product.name;
-            document.getElementById('productNameBreadcrumb').textContent = product.name;
-            document.getElementById('productCategory').textContent = product.category;
-            document.getElementById('productDescription').textContent = product.description;
-            document.getElementById('productPrice').textContent = product.price;
-
-            // Cargar selector de tallas
-            const sizeSelect = document.getElementById('sizeSelect');
-            sizeSelect.innerHTML = product.sizes.map(size => 
-                `<option value="${size}">${size}</option>`
-            ).join('');
-
-            // Cargar imágenes
-            loadProductImages();
-
-            // Cargar productos relacionados
-            loadRelatedProducts();
-        }
-
-        // Cargar imágenes del producto
-        function loadProductImages() {
-            const mainImage = document.getElementById('mainImage');
-            const thumbnailsContainer = document.getElementById('thumbnailsContainer');
-
-            // Imagen principal
-            mainImage.src = product.images[0];
-            mainImage.alt = product.name;
-
-            // Miniaturas
-            thumbnailsContainer.innerHTML = product.images.map((img, index) => `
-                <div class="col-3">
-                    <img src="${img}" 
-                         alt="${product.name} - Vista ${index + 1}" 
-                         class="img-fluid thumbnail-image ${index === 0 ? 'active' : ''}" 
-                         data-image="${img}">
-                </div>
-            `).join('');
-
-            // Event listeners para miniaturas
-            document.querySelectorAll('.thumbnail-image').forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    document.querySelectorAll('.thumbnail-image').forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    mainImage.src = this.getAttribute('data-image');
+                // Filtrar productos
+                productItems.forEach(item => {
+                    if (filter === 'todos' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
                 });
             });
+        });
 
-            // Zoom de imagen
-            mainImage.addEventListener('click', function() {
-                document.getElementById('zoomedImage').src = this.src;
-                const modal = new bootstrap.Modal(document.getElementById('imageZoomModal'));
-                modal.show();
-            });
+        // Aplicar filtro desde URL si existe
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoriaParam = urlParams.get('categoria');
+        if (categoriaParam) {
+            const targetButton = document.querySelector(`[data-filter="${categoriaParam}"]`);
+            if (targetButton) {
+                targetButton.click();
+            }
         }
 
-        // Cargar productos relacionados
-        function loadRelatedProducts() {
-            const container = document.getElementById('relatedProductsContainer');
-            const relatedIds = product.relatedProducts || [];
-
-            container.innerHTML = relatedIds.slice(0, 3).map(id => {
-                const relatedProduct = productsDatabase[id];
-                if (!relatedProduct) return '';
-
-                return `
-                    <div class="col-md-4">
-                        <div class="card product-card h-100">
-                            <div class="product-image-container" style="cursor: pointer;" onclick="window.location.href='producto-detalle.html?id=${id}'">
-                                <img src="${relatedProduct.images[0]}" alt="${relatedProduct.name}" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <span class="badge bg-primary mb-2">${relatedProduct.category}</span>
-                                <h5 class="card-title">${relatedProduct.name}</h5>
-                                <p class="price-text mb-3">Precio: <strong>${relatedProduct.price}</strong></p>
-                                <a href="producto-detalle.html?id=${id}" class="btn btn-outline-primary w-100">Ver Detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Control de cantidad
-        document.getElementById('decreaseQty').addEventListener('click', function() {
-            const input = document.getElementById('quantityInput');
-            const value = parseInt(input.value);
-            if (value > 1) {
-                input.value = value - 1;
-            }
-        });
-
-        document.getElementById('increaseQty').addEventListener('click', function() {
-            const input = document.getElementById('quantityInput');
-            const value = parseInt(input.value);
-            if (value < 10) {
-                input.value = value + 1;
-            }
-        });
-
-        // Agregar a cotización
-        document.getElementById('addToQuoteBtn').addEventListener('click', function() {
-            const size = document.getElementById('sizeSelect').value;
-            const quantity = parseInt(document.getElementById('quantityInput').value);
-
-            addToCart(product.name, size, quantity);
-        });
-
-        // Funciones del carrito
+        // Funcionalidad del carro de cotización
         function getCart() {
             return JSON.parse(localStorage.getItem('quoteCart') || '[]');
         }
@@ -527,6 +687,7 @@
             toast.show();
         }
 
+        // Renderizar items del carro en el modal
         function renderCartItems() {
             const cart = getCart();
             const cartList = document.getElementById('cartItemsList');
@@ -557,6 +718,7 @@
                 </div>
             `).join('');
             
+            // Agregar event listeners a los botones de eliminar
             document.querySelectorAll('.delete-item').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -565,6 +727,7 @@
             });
         }
 
+        // Eliminar producto del carro
         function removeFromCart(index) {
             const cart = getCart();
             cart.splice(index, 1);
@@ -573,12 +736,26 @@
             renderCartItems();
         }
 
+        // Event listeners para botones "Agregar a cotización"
+        document.querySelectorAll('.add-to-quote').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const name = this.getAttribute('data-name');
+                const size = card.querySelector('.size-select').value;
+                const quantity = parseInt(card.querySelector('.quantity-input').value);
+
+                addToCart(name, size, quantity);
+            });
+        });
+
+        // Abrir modal del carro
         document.getElementById('quoteCartBtn').addEventListener('click', function() {
             renderCartItems();
             const modal = new bootstrap.Modal(document.getElementById('quoteCartModal'));
             modal.show();
         });
 
+        // Enviar por WhatsApp desde el modal
         document.getElementById('sendQuoteBtn').addEventListener('click', function() {
             const cart = getCart();
             
@@ -594,15 +771,15 @@
             });
             message += '. ¿Me indican disponibilidad y precio? Gracias.';
 
-            const phoneNumber = '+573022754591';
+            // REEMPLAZAR_NUM_WHATSAPP_AQUI con tu número real
+            const phoneNumber = '+573022754591'; // Cambiar por número real
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
         });
 
-        // Inicializar
-        loadProductInfo();
+        // Inicializar contador
         updateCartCounter();
     </script>
 
